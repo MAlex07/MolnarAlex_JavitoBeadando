@@ -117,6 +117,21 @@ namespace MolnarAlex_JavitoBeadando
             }
         }
 
+        static void F05(string[] szavak)
+        {
+            double atlag = F02(szavak);
+            Console.WriteLine($"Ennyi szóban volt átlagoasan 2 db magánhangzó: {atlag}");
+
+            int[,] matrix = F03(szavak);
+            Console.WriteLine("Szavanként ennyi magán és mássalhangzó található a tömbben: ");
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                Console.WriteLine($"Szó {i+1}: Magánhangzók: {matrix[i,0]}, Mássálhangzók: {matrix[i,1]}");
+            }
+
+            F04(szavak) ;
+        }
+
 
         static void Main(string[] args)
         {
