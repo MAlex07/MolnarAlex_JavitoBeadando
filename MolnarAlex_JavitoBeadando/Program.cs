@@ -33,9 +33,44 @@ namespace MolnarAlex_JavitoBeadando
             }
 
              return new string(szo);
-            
+        }
 
 
+        static double F02(string[] tomb)
+        {
+            double atlag = 0;
+            int db = 0;
+
+            foreach(string szo in tomb)
+            {
+                int maganhangzokszama = maganhangzokSzama(szo);
+
+                if (maganhangzokszama == 2)
+                {
+                    db++;
+                }
+            }
+            if (tomb.Length > 0)
+            {
+                atlag = (double)db / tomb.Length;
+            }
+
+            return Math.Round(atlag,2);
+        }
+
+        static int  maganhangzokSzama (string szo)
+        {
+            int db = 0;
+            string maganhangzok = "aáeéoóöőuúüűií";
+
+            foreach (char i in szo)
+            {
+                if (maganhangzok.Contains(i))
+                {
+                    db++;
+                }
+            }
+            return db;
         }
 
 
@@ -46,12 +81,16 @@ namespace MolnarAlex_JavitoBeadando
             string[] keszSzavak = new string[15];
 
             F01(keszSzavak);
-            
-            foreach(string szo  in keszSzavak)
+
+            foreach (string szo in keszSzavak)
             {
                 Console.WriteLine(szo);
             }
 
+
+            string[] szavak = { "medve", "kutya", "macska", "telefon", "asztalilámpa" };
+            double eredmeny = F02(szavak);
+            Console.WriteLine("Átlagosan ennyi szóban van pontosan 2 magánhangzó: "+eredmeny);
 
 
             Console.ReadKey();
