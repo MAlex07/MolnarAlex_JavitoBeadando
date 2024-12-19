@@ -145,7 +145,7 @@ namespace MolnarAlex_JavitoBeadando
             }
 
 
-            string[] szavak = { "medve", "kutya", "macska", "telefon", "asztalilámpa" };
+            string[] szavak = { "medve", "kutya", "macska", "telefon", "asztalilámpa", "gépház", "egér", "monitor", "papucs", "tengerimalac", "autó", "tea", "ing", "póló","túrórudi" };
             double eredmeny = F02(szavak);
             Console.WriteLine("Átlagosan ennyi szóban van pontosan 2 magánhangzó: "+eredmeny);
 
@@ -157,6 +157,11 @@ namespace MolnarAlex_JavitoBeadando
             }
 
             F04(szavak);
+
+            F01(szavak);
+            F05(szavak);
+
+
 
 
 
