@@ -107,6 +107,16 @@ namespace MolnarAlex_JavitoBeadando
             return db;
         }
 
+        static void F04(string[] szavak)
+        {
+            Array.Sort(szavak);
+
+            for (int i = 0;i < szavak.Length; i++)
+            {
+                Console.WriteLine(szavak[i]);
+            }
+        }
+
 
         static void Main(string[] args)
         {
@@ -129,9 +139,9 @@ namespace MolnarAlex_JavitoBeadando
             for (int i = 0; i < f03eredmeny.GetLength(0); i++)
             {
                 Console.WriteLine($"Szó {i+1}: Maganhangzók: {f03eredmeny[i,0]}, Mássalhangzók: {f03eredmeny[i,1]}");
-
             }
 
+            F04(szavak);
 
 
 
