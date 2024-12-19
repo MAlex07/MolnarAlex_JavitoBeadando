@@ -73,7 +73,39 @@ namespace MolnarAlex_JavitoBeadando
             return db;
         }
 
+        static int[,] F03 (string[] szavak)
+        {
+            int[,] matrix = new int[szavak.Length,2];
 
+            for (int i = 0; i < szavak.Length; i++)
+            {
+                string szo = szavak[i];
+                int maganhangzok = f03maganhangzok(szo);
+                int massalhangzok = szo.Length - maganhangzok;
+
+                matrix[i, 0] = maganhangzok;
+                matrix[i, 1] = massalhangzok;
+            }
+
+            return matrix;
+
+        }
+
+        static int f03maganhangzok (string szo)
+        {
+            int db = 0;
+            string maganhangzok = "aáeéiíoóöőuúüű";
+
+            foreach(char i in szo)
+            {
+                if (maganhangzok.Contains(i))
+                {
+                    db++;
+                }
+            }
+
+            return db;
+        }
 
 
         static void Main(string[] args)
@@ -91,6 +123,17 @@ namespace MolnarAlex_JavitoBeadando
             string[] szavak = { "medve", "kutya", "macska", "telefon", "asztalilámpa" };
             double eredmeny = F02(szavak);
             Console.WriteLine("Átlagosan ennyi szóban van pontosan 2 magánhangzó: "+eredmeny);
+
+
+            int[,] f03eredmeny = F03(szavak);
+            for (int i = 0; i < f03eredmeny.GetLength(0); i++)
+            {
+                Console.WriteLine($"Szó {i+1}: Maganhangzók: {f03eredmeny[i,0]}, Mássalhangzók: {f03eredmeny[i,1]}");
+
+            }
+
+
+
 
 
             Console.ReadKey();
